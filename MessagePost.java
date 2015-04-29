@@ -76,6 +76,21 @@ public class MessagePost
     * Muestra por pantalla el mensaje
     */
    public void display(){
+       System.out.println("\n--------------------------------------------------------------");
+       System.out.println(username.toUpperCase());
+       System.out.println();
+       System.out.println("\t" + message);
+       System.out.println("Hace " + timeString(System.currentTimeMillis()));
+       System.out.println();
+       System.out.println(likes + " Me gusta.");
+       System.out.println(comments.size() + " comentarios.");
+       for(String comment : comments){
+           System.out.println("\n\t\t\t\t----------------");
+           System.out.println(comment);
+           System.out.println("\t\t\t\t----------------");
+        }
+       System.out.println("--------------------------------------------------------------");
+       
     }
     
    /*
