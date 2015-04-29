@@ -80,14 +80,15 @@ public class MessagePost
        System.out.println(username.toUpperCase());
        System.out.println();
        System.out.println("\t" + message);
+       System.out.println();
        System.out.println("Hace " + timeString(System.currentTimeMillis()));
        System.out.println();
        System.out.println(likes + " Me gusta.");
        System.out.println(comments.size() + " comentarios.");
        for(String comment : comments){
-           System.out.println("\n\t\t\t\t----------------");
-           System.out.println(comment);
-           System.out.println("\t\t\t\t----------------");
+           System.out.println("\n\t----------------");
+           System.out.println("\t" + comment);
+           System.out.println("\t----------------");
         }
        System.out.println("--------------------------------------------------------------");
        
@@ -102,6 +103,17 @@ public class MessagePost
     * @return una cadena de texto con el tiempo transcurrido
     */
    private String timeString(long time){
-       return null;
+       int segundosTranscurridos = (int) ((time - timeStamp)/1000);
+       
+       int minutosTranscurridos = (segundosTranscurridos / 60);
+       int restoSegundos = segundosTranscurridos % 60;
+       
+       String tiempo = new String();
+       if(minutosTranscurridos > 0){
+           tiempo += minutosTranscurridos + " minutos ";
+        }
+       tiempo += restoSegundos + " segundos.";
+       
+       return tiempo;
     }
 }
