@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Post
+public abstract class Post
 {
    protected String username;
    protected long timeStamp;
@@ -56,9 +56,11 @@ public class Post
    /**
     * Muestra por pantalla el mensaje
     */
-   public void display(){
+   public void display(String contenido){
        System.out.println("\n--------------------------------------------------------------");
        System.out.println(username.toUpperCase());
+       System.out.println();
+       System.out.println(contenido);
        System.out.println();
        System.out.println("Hace " + timeString(System.currentTimeMillis()));
        System.out.println();
@@ -72,8 +74,8 @@ public class Post
        System.out.println("--------------------------------------------------------------");
        
     }
-    
-    
+   
+  
     /*
     * METODO PRIVADO, que calcula el tiempo transcurrido desde que se creó el mensaje hasta el momento que se le pasa como parametro y lo
     * devuelve como una cadena de texto
@@ -96,4 +98,11 @@ public class Post
        
        return tiempo;
     }
+    
+     /**
+    * Metodo abstracto que obliga a implementar dicho metodo a las hijas
+    * 
+    */
+   public abstract void display();
+    
 }

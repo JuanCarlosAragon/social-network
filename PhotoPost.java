@@ -42,27 +42,10 @@ public class PhotoPost extends Post
        return caption;
     }
 
-    @Override
    /**
     * Muestra por pantalla el mensaje
     */
    public void display(){
-       System.out.println("\n--------------------------------------------------------------");
-       System.out.println(username.toUpperCase());
-       System.out.println();
-       System.out.println("\t" + filename);
-       System.out.println("\t" + caption);
-       System.out.println();
-       System.out.println("Hace " + timeString(System.currentTimeMillis()));
-       System.out.println();
-       System.out.println(likes + " Me gusta.");
-       System.out.println(comments.size() + " comentarios.");
-       for(String comment : comments){
-           System.out.println("\n\t----------------");
-           System.out.println("\t" + comment);
-           System.out.println("\t----------------");
-        }
-       System.out.println("--------------------------------------------------------------");
-       
+       display("\t" + filename + "\n\t" + caption);
     }
 }
