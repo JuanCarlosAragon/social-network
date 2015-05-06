@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author (Juan Carlos Aragón) 
  * @version (1.0)
  */
-public class PhotoPost extends Post
+public class PhotoPost extends CommentPost
 {
    private String filename;
    private String caption;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author (Juan Carlos Aragón) 
  * @version (1.0)
  */
-public class MessagePost extends Post
+public class MessagePost extends CommentPost
 {
    //Atributos de la clase: 
    private String message;

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 /**
  * Write a description of class Post here.
  * 
@@ -10,13 +10,11 @@ public abstract class Post
    protected String username;
    protected long timeStamp;
    protected int likes;
-   protected ArrayList<String> comments;
    
    public Post(String author){
        username = author;
        timeStamp = System.currentTimeMillis();
        likes = 0;
-       comments = new ArrayList<>();
     }
     
    /**
@@ -33,15 +31,6 @@ public abstract class Post
        if(likes > 0){
            likes--;
         }
-    }
-    
-    /**
-    * Añade un comentario al mensaje
-    * 
-    * @param text El texto del comentario
-    */
-   public void addComment(String text){
-       comments.add(text);
     }
     
    /**
@@ -64,15 +53,7 @@ public abstract class Post
        System.out.println();
        System.out.println("Hace " + timeString(System.currentTimeMillis()));
        System.out.println();
-       System.out.println(likes + " Me gusta.");
-       System.out.println(comments.size() + " comentarios.");
-       for(String comment : comments){
-           System.out.println("\n\t----------------");
-           System.out.println("\t" + comment);
-           System.out.println("\t----------------");
-        }
-       System.out.println("--------------------------------------------------------------");
-       
+       System.out.println(likes + " Me gusta.");       
     }
    
   
