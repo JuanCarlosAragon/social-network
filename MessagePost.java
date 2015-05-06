@@ -53,4 +53,11 @@ public class MessagePost extends Post
        System.out.println("--------------------------------------------------------------");
        
     }
+    
+    /**
+     * Imprime por pantalla el autor del mensaje
+     */
+    public void printShortSummary(){
+        System.out.println("Esto es un post de texto creado por " + username);
+    }
 }
