@@ -5,14 +5,10 @@ import java.util.ArrayList;
  * @author (Juan Carlos Aragón) 
  * @version (1.0)
  */
-public class MessagePost
+public class MessagePost extends Post
 {
    //Atributos de la clase: 
-   private String username;
    private String message;
-   private long timeStamp;
-   private int likes;
-   private ArrayList<String> comments;
    
    
    /**
@@ -22,38 +18,10 @@ public class MessagePost
     * @param text El texto del mensaje
     */
    public MessagePost(String author, String text){
-       username = author;
+       super(author);
        message = text;
-       timeStamp = System.currentTimeMillis();
-       likes = 0;
-       comments = new ArrayList<>();
     }
     
-   /**
-    * Añade un like al mensaje
-    */
-   public void like(){
-       likes++;
-    }
-    
-   /**
-    * Quita un like al mensaje
-    */
-   public void unLike(){
-       if(likes > 0){
-           likes--;
-        }
-    }
-    
-   /**
-    * Añade un comentario al mensaje
-    * 
-    * @param text El texto del comentario
-    */
-   public void addComment(String text){
-       comments.add(text);
-    }
-   
    /**
     * Devuelve el texto del mensaje
     * 
@@ -63,15 +31,7 @@ public class MessagePost
        return message;
     }
     
-   /**
-    * Devuelve el tiempo transcurrido en milisegundos desde la medianoche del 1 de enero de 1970 hasta el momento de la creación del mensaje
-    * 
-    * @return tiempo en milisegundos transcurridos hasta la creación del mensaje
-    */
-   public long getTimeStamp(){
-       return timeStamp;
-    }
-    
+   @Override
    /**
     * Muestra por pantalla el mensaje
     */
@@ -92,28 +52,5 @@ public class MessagePost
         }
        System.out.println("--------------------------------------------------------------");
        
-    }
-    
-   /*
-    * METODO PRIVADO, que calcula el tiempo transcurrido desde que se creó el mensaje hasta el momento que se le pasa como parametro y lo
-    * devuelve como una cadena de texto
-    * 
-    * @param time el tiempo actual cogido como referencia para el intervalo
-    * 
-    * @return una cadena de texto con el tiempo transcurrido
-    */
-   private String timeString(long time){
-       int segundosTranscurridos = (int) ((time - timeStamp)/1000);
-       
-       int minutosTranscurridos = (segundosTranscurridos / 60);
-       int restoSegundos = segundosTranscurridos % 60;
-       
-       String tiempo = new String();
-       if(minutosTranscurridos > 0){
-           tiempo += minutosTranscurridos + " minutos ";
-        }
-       tiempo += restoSegundos + " segundos.";
-       
-       return tiempo;
     }
 }

@@ -5,14 +5,10 @@ import java.util.ArrayList;
  * @author (Juan Carlos Aragón) 
  * @version (1.0)
  */
-public class PhotoPost
+public class PhotoPost extends Post
 {
-   private String username;
    private String filename;
    private String caption;
-   private long timeStamp;
-   private int likes;
-   private ArrayList<String> comments;
    
    
    /**
@@ -23,39 +19,11 @@ public class PhotoPost
     * @param caption El subtítulo asignado a la imagen
     */
    public PhotoPost(String author, String filename, String caption){
-       username = author;
+       super(author);
        this.filename = filename;
        this.caption = caption;
-       timeStamp = System.currentTimeMillis();
-       likes = 0;
-       comments = new ArrayList<>();
     }
     
-   /**
-    * Añade un like al mensaje
-    */
-   public void like(){
-       likes++;
-    }
-    
-   /**
-    * Quita un like al mensaje
-    */
-   public void unLike(){
-       if(likes > 0){
-           likes--;
-        }
-    }
-    
-   /**
-    * Añade un comentario al mensaje
-    * 
-    * @param text El texto del comentario
-    */
-   public void addComment(String text){
-       comments.add(text);
-    }
-   
    /**
     * Devuelve la ruta de la imagen del post
     * 
@@ -73,16 +41,8 @@ public class PhotoPost
    public String getCaption(){
        return caption;
     }
-    
-   /**
-    * Devuelve el tiempo transcurrido en milisegundos desde la medianoche del 1 de enero de 1970 hasta el momento de la creación del mensaje
-    * 
-    * @return tiempo en milisegundos transcurridos hasta la creación del mensaje
-    */
-   public long getTimeStamp(){
-       return timeStamp;
-    }
-    
+
+    @Override
    /**
     * Muestra por pantalla el mensaje
     */
@@ -104,28 +64,5 @@ public class PhotoPost
         }
        System.out.println("--------------------------------------------------------------");
        
-    }
-    
-   /*
-    * METODO PRIVADO, que calcula el tiempo transcurrido desde que se creó el mensaje hasta el momento que se le pasa como parametro y lo
-    * devuelve como una cadena de texto
-    * 
-    * @param time el tiempo actual cogido como referencia para el intervalo
-    * 
-    * @return una cadena de texto con el tiempo transcurrido
-    */
-   private String timeString(long time){
-       int segundosTranscurridos = (int) ((time - timeStamp)/1000);
-       
-       int minutosTranscurridos = (segundosTranscurridos / 60);
-       int restoSegundos = segundosTranscurridos % 60;
-       
-       String tiempo = new String();
-       if(minutosTranscurridos > 0){
-           tiempo += minutosTranscurridos + " minutos ";
-        }
-       tiempo += restoSegundos + " segundos.";
-       
-       return tiempo;
     }
 }
